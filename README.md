@@ -182,7 +182,7 @@ INFO:root:rank=9 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-disjoint
 ## Task 2: The Personalization Vector
 **Part 1: Filterting with a personalization vector**
 
-Using personalization vector to filter the personalization vector Webpage is considered important if other coronavirus websites think that this website is important. Comparing the results we get from using <code>--personalization_vector_query<code> and <code>--search_query<code> to illustrate:
+Using personalization vector to filter the personalization vector Webpage is considered important if other coronavirus websites think that this website is important. Comparing the results we get from using <code>--personalization_vector_query</code> and the results from <code>--search_query</code> to illustrate:
 
 ```
 run pagerank.py --data=lawfareblog.csv.gz --filter_ratio=0.2 --personalization_vector_query=corona --search_query=-corona
@@ -214,7 +214,7 @@ INFO:root:rank=8 pagerank=2.5463e-02 url=www.lawfareblog.com/lawfare-podcast-uni
 INFO:root:rank=9 pagerank=1.9066e-02 url=www.lawfareblog.com/congressional-homeland-security-committees-seek-ways-support-state-federal-responses-coronavirus
 ```
 
-With the <code>--personalization_vector_query<code> option, a webpage is important only if other coronavirus webpages also think it's important; with the <code>--search_query<code> option, a webpage is important if any other webpage thinks it's important. Notice that many of the webpages are about Congressional proceedings related to the coronavirus. From a strictly coronavirus perspective, these are not very important webpages. But in the broader context of national security, these are very important webpages.
+With the <code>--personalization_vector_query</code> option, a webpage is important only if other coronavirus webpages also think it's important; with the <code>--search_query</code> option, a webpage is important if any other webpage thinks it's important. Notice that many of the webpages are about Congressional proceedings related to the coronavirus. From a strictly coronavirus perspective, these are not very important webpages. But in the broader context of national security, these are very important webpages.
 
 
 **Part 2: Similar topics**
