@@ -134,8 +134,8 @@ INFO:root:rank=6 pagerank=8.4156e+00 url=www.lawfareblog.com/snowden-revelations
 INFO:root:rank=7 pagerank=8.4156e+00 url=www.lawfareblog.com/about-lawfare-brief-history-term-and-site
 INFO:root:rank=8 pagerank=8.4156e+00 url=www.lawfareblog.com/topics
 INFO:root:rank=9 pagerank=8.4156e+00 url=www.lawfareblog.com/documents-related-mueller-investigation
-
-
+```
+```
 run pagerank.py --data=lawfareblog.csv.gz --verbose --alpha=0.999999
 
 INFO:root:rank=0 pagerank=1.0703e+01 url=www.lawfareblog.com/topics
@@ -148,8 +148,8 @@ INFO:root:rank=6 pagerank=1.0703e+01 url=www.lawfareblog.com/support-lawfare
 INFO:root:rank=7 pagerank=1.0703e+01 url=www.lawfareblog.com/snowden-revelations
 INFO:root:rank=8 pagerank=1.0703e+01 url=www.lawfareblog.com/about-lawfare-brief-history-term-and-site
 INFO:root:rank=9 pagerank=1.0703e+01 url=www.lawfareblog.com/documents-related-mueller-investigation
-
-
+```
+```
 run pagerank.py --data=lawfareblog.csv.gz --verbose --filter_ratio=0.2
 
 INFO:root:rank=0 pagerank=4.2773e+00 url=www.lawfareblog.com/trump-asks-supreme-court-stay-congressional-subpeona-tax-returns
@@ -162,8 +162,8 @@ INFO:root:rank=6 pagerank=1.7347e+00 url=www.lawfareblog.com/whats-house-resolut
 INFO:root:rank=7 pagerank=1.6384e+00 url=www.lawfareblog.com/congress-us-policy-toward-syria-and-turkey-overview-recent-hearings
 INFO:root:rank=8 pagerank=1.5597e+00 url=www.lawfareblog.com/summary-david-holmess-deposition-testimony
 INFO:root:rank=9 pagerank=9.1265e-01 url=www.lawfareblog.com/events
-
-
+```
+```
 run pagerank.py --data=lawfareblog.csv.gz --verbose --filter_ratio=0.2 --alpha=0.9999999
 
 INFO:root:rank=0 pagerank=4.7991e+01 url=www.lawfareblog.com/covid-19-speech-and-surveillance-response
@@ -176,7 +176,6 @@ INFO:root:rank=6 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-drill-ma
 INFO:root:rank=7 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-song-oil-and-fire
 INFO:root:rank=8 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-us-china-divide-shangri-la
 INFO:root:rank=9 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-disjointed-operations-south-china-sea
-
 ```
 
 ## Task 2: The Personalization Vector
@@ -197,7 +196,8 @@ INFO:root:rank=6 pagerank=7.5307e-02 url=www.lawfareblog.com/limits-world-health
 INFO:root:rank=7 pagerank=6.8115e-02 url=www.lawfareblog.com/chinatalk-dispatches-shanghai-beijing-and-hong-kong
 INFO:root:rank=8 pagerank=6.4847e-02 url=www.lawfareblog.com/us-moves-dismiss-case-against-company-linked-ira-troll-farm        
 INFO:root:rank=9 pagerank=6.4847e-02 url=www.lawfareblog.com/livestream-house-armed-services-holds-hearing-national-security-challenges-north-and-south-america
-
+```
+```
 run pagerank.py --data=lawfareblog.csv.gz --filter_ratio=0.2 --search_query=corona
 
 INFO:root:rank=0 pagerank=1.1602e-01 url=www.lawfareblog.com/congress-needs-coronavirus-failsafe-its-too-late
@@ -254,8 +254,8 @@ INFO:root:rank=6 pagerank=1.9135e-01 url=www.lawfareblog.com/blurred-distinction
 INFO:root:rank=7 pagerank=1.8959e-01 url=www.lawfareblog.com/document-sen-tim-kaine-presses-pentagon-legal-definition-collective-self-defense
 INFO:root:rank=8 pagerank=1.8959e-01 url=www.lawfareblog.com/document-july-2018-nato-summit-communique
 INFO:root:rank=9 pagerank=1.8942e-01 url=www.lawfareblog.com/al-kibar-strike-what-difference-26-years-make
-
-
+```
+```
 run pagerank.py --data=lawfareblog.csv.gz --filter_ratio=0.2 --personalization_vector_query=tiktok --search_query=-tiktok
 
 INFO:root:rank=0 pagerank=8.9733e-02 url=www.lawfareblog.com/covid-19-speech-and-surveillance-response
