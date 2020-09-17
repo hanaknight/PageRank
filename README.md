@@ -1,5 +1,3 @@
-README PAGE
-
 # PageRank
 In this project, I attempt to replicate the link-based ranking system developed by Sergey Brin and Larry Page in their 1998 paper "The PageRank Citation Ranking: Bringing Order to the Web”. This algorithm remains the foundation for Google's web search tools. Langville and Meyer provide additional guidance on the construction and components of PageRank in their 2004 paper "Deeper Inside PageRank". Professor Mike Izbicki provided valuable guidance throughout this project.
 
@@ -97,7 +95,7 @@ INFO:root:rank=9 pagerank=8.4156e+00 url=www.lawfareblog.com/documents-related-m
 
 However, these pages are not very interesting because they are not articles. How can we find the most important articles? We'd have to modify the P matrix by removing all links to non-article pages.
 
-How do we know if a link is a non-article page? This is a hard question to answer with 100% accuracy, but there are many methods that get us most of the way there. An easy method is to remove all pages that have "too many" links. The <code> --filter_ratio <code> argument removes all pages that have more links than the specified fraction. 
+How do we know if a link is a non-article page? This is a hard question to answer with 100% accuracy, but there are many methods that get us most of the way there. An easy method is to remove all pages that have "too many" links. The <code>--filter_ratio</code> argument removes all pages that have more links than the specified fraction. 
 
 Using this option, we can estimate the most important articles on the domain with the following command:
 
@@ -116,7 +114,7 @@ INFO:root:rank=8 pagerank=1.5597e+00 url=www.lawfareblog.com/summary-david-holme
 INFO:root:rank=9 pagerank=9.1265e-01 url=www.lawfareblog.com/events
 ```
 
-The <code> --filter_ratio <code> essentially acts sort of an "anti-spam" filter.
+The <code>--filter_ratio</code> essentially acts sort of an "anti-spam" filter.
 
 **Part 4: Eigengaps**
 The eigengap of the P barbar matrix is bounded by the alpha parameter. The size of the eigengap determines determines the speed at which the algorithm converges. If the eigengap of a matrix is large, then it will converge quickly even at alpha values that approach 1. If the eigengap is small, then only at smaller alpha values will the convergence occur quickly. We can run the following four commands to illustrate this:
@@ -135,6 +133,7 @@ INFO:root:rank=7 pagerank=8.4156e+00 url=www.lawfareblog.com/about-lawfare-brief
 INFO:root:rank=8 pagerank=8.4156e+00 url=www.lawfareblog.com/topics
 INFO:root:rank=9 pagerank=8.4156e+00 url=www.lawfareblog.com/documents-related-mueller-investigation
 ```
+
 ```
 run pagerank.py --data=lawfareblog.csv.gz --verbose --alpha=0.999999
 
@@ -149,6 +148,7 @@ INFO:root:rank=7 pagerank=1.0703e+01 url=www.lawfareblog.com/snowden-revelations
 INFO:root:rank=8 pagerank=1.0703e+01 url=www.lawfareblog.com/about-lawfare-brief-history-term-and-site
 INFO:root:rank=9 pagerank=1.0703e+01 url=www.lawfareblog.com/documents-related-mueller-investigation
 ```
+
 ```
 run pagerank.py --data=lawfareblog.csv.gz --verbose --filter_ratio=0.2
 
@@ -163,6 +163,7 @@ INFO:root:rank=7 pagerank=1.6384e+00 url=www.lawfareblog.com/congress-us-policy-
 INFO:root:rank=8 pagerank=1.5597e+00 url=www.lawfareblog.com/summary-david-holmess-deposition-testimony
 INFO:root:rank=9 pagerank=9.1265e-01 url=www.lawfareblog.com/events
 ```
+
 ```
 run pagerank.py --data=lawfareblog.csv.gz --verbose --filter_ratio=0.2 --alpha=0.9999999
 
@@ -181,7 +182,7 @@ INFO:root:rank=9 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-disjoint
 ## Task 2: The Personalization Vector
 **Part 1: Filterting with a personalization vector**
 
-Using personalization vector to filter the personalization vector Webpage is considered important if other coronavirus websites think that this website is important. Comparing the results we get from using <code> --personalization_vector_query <code> and <code> --search_query <code>
+Using personalization vector to filter the personalization vector Webpage is considered important if other coronavirus websites think that this website is important. Comparing the results we get from using <code>--personalization_vector_query<code> and <code>--search_query<code>
 
 ```
 run pagerank.py --data=lawfareblog.csv.gz --filter_ratio=0.2 --personalization_vector_query=corona --search_query=-corona
@@ -197,6 +198,7 @@ INFO:root:rank=7 pagerank=6.8115e-02 url=www.lawfareblog.com/chinatalk-dispatche
 INFO:root:rank=8 pagerank=6.4847e-02 url=www.lawfareblog.com/us-moves-dismiss-case-against-company-linked-ira-troll-farm        
 INFO:root:rank=9 pagerank=6.4847e-02 url=www.lawfareblog.com/livestream-house-armed-services-holds-hearing-national-security-challenges-north-and-south-america
 ```
+
 ```
 run pagerank.py --data=lawfareblog.csv.gz --filter_ratio=0.2 --search_query=corona
 
@@ -212,11 +214,11 @@ INFO:root:rank=8 pagerank=2.5463e-02 url=www.lawfareblog.com/lawfare-podcast-uni
 INFO:root:rank=9 pagerank=1.9066e-02 url=www.lawfareblog.com/congressional-homeland-security-committees-seek-ways-support-state-federal-responses-coronavirus
 ```
 
-With the <code> --personalization_vector_query <code> option, a webpage is important only if other coronavirus webpages also think it's important; with the <code> --search_query <code> option, a webpage is important if any other webpage thinks it's important. Notice that many of the webpages are about Congressional proceedings related to the coronavirus. From a strictly coronavirus perspective, these are not very important webpages. But in the broader context of national security, these are very important webpages.
+With the <code>--personalization_vector_query<code> option, a webpage is important only if other coronavirus webpages also think it's important; with the <code>--search_query<code> option, a webpage is important if any other webpage thinks it's important. Notice that many of the webpages are about Congressional proceedings related to the coronavirus. From a strictly coronavirus perspective, these are not very important webpages. But in the broader context of national security, these are very important webpages.
 
 
 **Part 2: Similar topics**
-Another use of the --personalization_vector_query option is that we can find out what webpages are related to the coronavirus but don't directly mention the coronavirus. This can be used to map out what types of topics are similar to the coronavirus.
+Another use of the <code>--personalization_vector_query</code> option is that we can find out what webpages are related to the coronavirus but don't directly mention the coronavirus. This can be used to map out what types of topics are similar to the coronavirus.
 
 For example, the following query ranks all webpages by their corona importance, but removes webpages mentioning corona from the results:
 
@@ -255,6 +257,7 @@ INFO:root:rank=7 pagerank=1.8959e-01 url=www.lawfareblog.com/document-sen-tim-ka
 INFO:root:rank=8 pagerank=1.8959e-01 url=www.lawfareblog.com/document-july-2018-nato-summit-communique
 INFO:root:rank=9 pagerank=1.8942e-01 url=www.lawfareblog.com/al-kibar-strike-what-difference-26-years-make
 ```
+
 ```
 run pagerank.py --data=lawfareblog.csv.gz --filter_ratio=0.2 --personalization_vector_query=tiktok --search_query=-tiktok
 
