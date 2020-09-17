@@ -182,7 +182,7 @@ INFO:root:rank=9 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-disjoint
 ## Task 2: The Personalization Vector
 **Part 1: Filterting with a personalization vector**
 
-Using personalization vector to filter the personalization vector Webpage is considered important if other coronavirus websites think that this website is important. Comparing the results we get from using <code>--personalization_vector_query<code> and <code>--search_query<code>
+Using personalization vector to filter the personalization vector Webpage is considered important if other coronavirus websites think that this website is important. Comparing the results we get from using <code>--personalization_vector_query<code> and <code>--search_query<code> to illustrate:
 
 ```
 run pagerank.py --data=lawfareblog.csv.gz --filter_ratio=0.2 --personalization_vector_query=corona --search_query=-corona
