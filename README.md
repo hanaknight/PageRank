@@ -1,9 +1,29 @@
-# PageRank
+# Mining a Website Providing Legal Analysis of US National Security Issues
+
+## 04 Dec 2020: Updated using Gensim word similarity
+Using the ```pagerank_updated.py```, I modified the previously-developed implementation of the Google PageRank algorithm so that it also searches for the keywords in the query and the 5 most similar words. Word similarity was determined using word embeddings from the ```glove-twitter-25``` training corpus available through gensim. 
+Here is the results when the search query ```drones``` was passed through:
+
+```
+INFO:gensim.models.keyedvectors:precomputing L2-norms of word weight vectors
+INFO:root:rank=0 pagerank=0.004593398422002792 url=www.lawfareblog.com/donald-trump-and-politically-weaponized-executive-branch
+INFO:root:rank=1 pagerank=0.0026927897706627846 url=www.lawfareblog.com/cyber-command-operational-update-clarifying-june-2019-iran-operation
+INFO:root:rank=2 pagerank=0.0020540361292660236 url=www.lawfareblog.com/roundtable-war-powers-reform   
+INFO:root:rank=3 pagerank=0.0018883486045524478 url=www.lawfareblog.com/achieving-and-maintaining-cyberspace-superiority-cyber-command-and-interagency-legal-conference
+INFO:root:rank=4 pagerank=0.0016097885090857744 url=www.lawfareblog.com/daniel-webster-war-powers-and-birdht
+INFO:root:rank=5 pagerank=0.0012376350350677967 url=www.lawfareblog.com/civcas-reporting-responsible-command-and-feasibility
+INFO:root:rank=6 pagerank=0.0011619674041867256 url=www.lawfareblog.com/slaughterbots-and-other-anticipated-autonomous-weapons-problems
+INFO:root:rank=7 pagerank=0.0008982765139080584 url=www.lawfareblog.com/war-powers-red-lines-and-credibility
+INFO:root:rank=8 pagerank=0.0008339908090420067 url=www.lawfareblog.com/trump-and-powers-american-presidency-part-i
+INFO:root:rank=9 pagerank=0.0007972712628543377 url=www.lawfareblog.com/introducing-new-paper-weaponized-interdependence
+```
+
+## 09 Sept 2020: Using Pagerank
 In this project, I attempt to replicate the link-based ranking system developed by Sergey Brin and Larry Page in their 1998 paper "The PageRank Citation Ranking: Bringing Order to the Web”. This algorithm remains the foundation for Google's web search tools. Langville and Meyer provide additional guidance on the construction and components of PageRank in their 2004 paper "Deeper Inside PageRank". Professor Mike Izbicki provided valuable guidance throughout this project.
 
 We begin by constructing a Markov matrix P, where each entry ij "is the proabability of moving from state i to state j" (Langville and Meyer 2004). This matrix is transformed into a stochastic, irreducible, and primitive matrix. This Markov matrix will converge to the dominant eigenvector. This vector is the PageRank vector which indicates the importance of each webpage within a graph. To do so, Brin and Page use the power method, which stores just the previous iterate for each iteration, and converges quickly for the stochastic, irreducible, and primitive P (P bar bar) matrix.
 
-## Task 1: Implementing the Power Method
+### Task 1: Implementing the Power Method
 **Part 1: Basic Power Method Implementation**
 After implementing the algorithm, we can test the basic algorithm on a 6 webpage graph, similar to the one used in *Langville and Meyer 2004*. We obtain the following result:
 
@@ -179,7 +199,7 @@ INFO:root:rank=8 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-us-china
 INFO:root:rank=9 pagerank=1.0878e+00 url=www.lawfareblog.com/water-wars-disjointed-operations-south-china-sea
 ```
 
-## Task 2: The Personalization Vector
+### Task 2: The Personalization Vector
 **Part 1: Filterting with a personalization vector**
 
 Using personalization vector to filter the personalization vector Webpage is considered important if other coronavirus websites think that this website is important. Comparing the results we get from using <code>--personalization_vector_query</code> and the results from <code>--search_query</code> to illustrate:
